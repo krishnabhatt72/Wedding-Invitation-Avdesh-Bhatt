@@ -2493,3 +2493,86 @@ body {
     }
 
 }
+
+/* =========================================================
+   FINAL MOBILE PHOTO OVERLAP FIX
+   Keeps every wedding photo in its own row on phones.
+   This overrides JavaScript masonry/grid row-span values.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Use normal vertical flow on mobile. */
+    .gallery,
+    .gallery-container,
+    .gallery-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        grid-template-columns: none !important;
+        grid-auto-rows: auto !important;
+        gap: 18px !important;
+        padding: 0 !important;
+    }
+
+    /* Every photo gets its own complete block. */
+    .gallery-item,
+    .gallery-item.large {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        grid-row: auto !important;
+        grid-column: auto !important;
+        overflow: hidden !important;
+        flex: 0 0 auto !important;
+        transform: none;
+    }
+
+    /* Cancel any inline grid span added by JavaScript. */
+    .gallery-item[style] {
+        grid-row: auto !important;
+        grid-column: auto !important;
+        height: auto !important;
+    }
+
+    .gallery-item img {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        transform: none;
+    }
+
+    /* Fixed navbar ke neeche content hide na ho. */
+    .gallery-section {
+        position: relative;
+        padding-top: 90px !important;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 420px) {
+
+    .gallery {
+        gap: 16px !important;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+        border-radius: 12px;
+    }
+
+    .gallery-item img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
